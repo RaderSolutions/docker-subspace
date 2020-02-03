@@ -1,7 +1,7 @@
 FROM subspacecloud/subspace:latest
 
 # remove lua modules for clean docker logs
-RUN sed '/ip addr add .*:.*:/d' -i /usr/local/bin/entrypoint.sh
+RUN sed '/ip addr add .*:.*:/d; /^wg.*/d;' -i /usr/local/bin/entrypoint.sh
 
 ## echo to make entrypoint be respected?
 RUN echo test
